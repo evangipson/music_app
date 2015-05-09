@@ -1,0 +1,21 @@
+<h1 style="padding-top:1.5em;padding-bottom:1.5em;">
+  <% if @user.username.match(" ") %>
+  <%= @user.username.last.downcase=='s' ? @user.username + "'" : @user.username + "'s" %> Page
+  <% else %>
+  <%= @user.username.downcase=='s' ? @user.username + "'" : @user.username + "'s" %> Page
+  <% end %>
+  
+</h1>
+<h2>USERNAME: <%= link_to @user.username, @user %></h2>
+<p>PASSWORD: <span class="song_genre" style=""><%= @user.password %></span></p>
+<% if @user.artist_id? %>
+<p>FAVORITE BAND: <span class="song_genre" style=""><%= link_to @artist.name, @artist %></span></p>
+<% else %>
+<p>No favorite band!</p>
+<% end %>
+
+
+  <% if current_user == @user %>
+  <p><%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', users_path %></p>
+  <% end %>
+

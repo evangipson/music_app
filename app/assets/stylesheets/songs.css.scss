@@ -1,0 +1,32 @@
+// Place all the styles related to the Songs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.song_title {
+  font-size:1.4em;
+  font-weight:600;
+}
+.song_artist {
+  font-size:0.9em;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.song_block {
+  width:75%;
+  display:inline-block;
+  padding:0.8em;
+}
+.song_genre {
+  color:#9E9E9E;
+  font-size:0.8em;
+  font-weight:200;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+h1 {
+  font-family:sans-serif;
+  letter-spacing:0.1em;
+  font-weight:200;
+  text-transform:uppercase;
+  text-align:center;
+}

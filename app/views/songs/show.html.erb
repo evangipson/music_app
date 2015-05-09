@@ -1,0 +1,6 @@
+<h1 style="padding-top:1.5em;padding-bottom:1.5em;"><%= @song.title %></h1>
+<h2>ARTIST: <%= link_to @song.artist.name, @song.artist %></h2>
+<p>GENRE: <span class="song_genre" style=""><%= @song.artist.genre %></span></p>
+<p>PLAYCOUNT: <span class='song_genre'><%= number_with_delimiter(@song.play_count, :delimiter => ',') %> </p>
+
+ <p><%= link_to 'Edit', edit_song_path(@song) %> | <%= link_to 'Destroy', @song, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', songs_path %></p>

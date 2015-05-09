@@ -1,0 +1,35 @@
+<h1 style="padding-top:1.5em;padding-bottom:1em;"><%= @artist.name %></h1>
+<% the_running_count=0 %>
+<% @artist.songs.each do |song| the_running_count += song.play_count.to_i end %>
+<h1 style="font-size:1.2em;padding-bottom:1em;letter-spacing:0.1em;text-transform:uppercase;">total plays: <%= number_with_delimiter(the_running_count, :delimiter => ',') %></h1>
+
+<% if @users.count > 0 %>
+<p> <%= @all_users.count %> users have favorited this band, here are some: </p>
+<% elsif @users.count == 1 %>
+<p> Only one user likes this band: </p>
+<% end %>
+<ul>
+<% @users.each do |user| %>
+    <li>
+      <%= link_to user.username, user %> 
+    </li>
+  <% end %>
+</ul>
+
+
+<p><span class="song_artist" style="text-align:center;font-size:1em"><%= @artist.songs.count %> songs</span></p>
+<p>GENRE: <span class="song_genre" style=""><%= @artist.genre %></span></p>
+<ul>
+  <% @songs.each do |song| %>
+    <li>
+        <%= link_to song.title, song %> 
+      <p style="font-size:0.8em;margin-left:2em;"><%= number_with_delimiter(song.play_count, :delimiter => ',')  %> plays</p>
+    </li>
+  <% end %>
+</ul>
+ <p><%= link_to 'Edit', edit_artist_path(@artist) %> | <%= link_to 'Destroy', @artist, method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', songs_path %></p>
+
+
+<div class="apple_pagination">
+  <%= will_paginate @songs %>
+</div>
